@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         极简百度搜索框
 // @namespace    https://github.com/springsea72/minimalist-baidu-search-box.git
-// @version      1.0
+// @version      1.1
 // @description  简化了百度搜索框，去除所有其他东西，只剩下单行搜索框
 // @author       springsea
 // @match        https://www.baidu.com/*
@@ -58,12 +58,15 @@
       padding-bottom: 9px !important;
     }
 
-    /* ======== 首页：按钮定位到最右 + 垂直居中 ======== */
+    /* ======== 首页：按钮定位到最右 + 固定在输入框那一行 ======== */
     .tm-bd-home #chat-input-main.one-line-input .chat-input-tool{
       position: absolute !important;
       right: 6px !important;
-      top: 50% !important;
-      transform: translateY(-50%) !important;
+
+      /* 固定距离顶部的像素，不再用 50% 居中，避免被联想词高度影响 */
+      top: 4px !important;              /* 觉得略高/略低可以自己微调这个数 */
+
+      transform: none !important;
       padding-top: 0 !important;
       width: auto !important;
       display: flex !important;
